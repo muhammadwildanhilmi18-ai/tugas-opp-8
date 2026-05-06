@@ -9,28 +9,24 @@
  */
 public class HitungHari {
 
-    public int hitung(int tahun, String bulan) {
+    public int hitung(int tahun, int bulan) {
 
         switch (bulan) {
-            case "Januari": return 31;
-            case "Februari":
-                // cek tahun kabisat
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                return 31;
+
+            case 4: case 6: case 9: case 11:
+                return 30;
+
+            case 2:
                 if ((tahun % 4 == 0 && tahun % 100 != 0) || (tahun % 400 == 0)) {
                     return 29;
                 } else {
                     return 28;
                 }
-            case "Maret": return 31;
-            case "April": return 30;
-            case "Mei": return 31;
-            case "Juni": return 30;
-            case "Juli": return 31;
-            case "Agustus": return 31;
-            case "September": return 30;
-            case "Oktober": return 31;
-            case "November": return 30;
-            case "Desember": return 31;
-            default: return 0;
+
+            default:
+                return 0;
         }
     }
 }
